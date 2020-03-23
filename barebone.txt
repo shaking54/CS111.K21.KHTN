@@ -1,0 +1,135 @@
+//Tính Z = X*X
+clear Z;
+clear Y;
+clear temp;
+while X not 0 do:
+	incr Y;
+	incr temp;
+	decr X;
+end;
+while temp not 0 do:
+	incr X;
+	decr temp;
+end;
+//X=Y => X*Y = X*X
+while X not 0 do:
+	clear W;
+	while Y not 0 do:
+		incr Z;
+		incr temp;
+		decr Y;
+	end;
+	while temp not 0 do:
+		incr Y;
+		decr W
+	end;
+	decr X;
+end;
+// Tính tổng Z = 1 + 2 + 3 + 4 + 5 +... X;
+clear Z;
+clear temp;
+while X not 0 do:
+	while X not 0 do:
+		incr temp;
+		decr X;
+	end;
+	while temp not 0 do:
+		incr Z;
+		incr X;
+		decr temp;
+	end;
+decr X;
+end;
+//define: 
+//if name1 < name2:
+//then:(true)
+//Instruction set 1
+//end;
+//else:(false)
+//instruction set 2;
+//end;
+//by replace IS1,IS2 to this template code 
+//clear answer;
+//copy name1 to temp1
+//copy name2 to temp2
+//while temp2 not 0 do:
+//incr answer;
+//decr temp2;  answ = name2 - name1
+//end;
+//while temp1 not 0 do:
+//decr temp1;
+//decr answer:
+//end;
+//clear temp3;
+//incr temp3;
+//while answer not 0:
+//Instruction set 1
+//clear temp3;
+//clear answer;
+//end;
+//while temp3 not 0:
+//Instruction set 2
+//clear temp3;
+//end;
+
+// Tính Z = X%Y;
+clear Z;
+clear switch;
+incr switch;
+while switch not 0 do
+	clear temp;
+	while Y not 0 do:
+		decr X1;
+		decr Y;
+		incr temp;
+	end;
+	while temp not 0 do:
+		incr Y:
+		decr temp;
+	end;
+	if X1 < Y1 do:
+	then:
+		decr switch;
+	end;
+	else:
+
+	end;
+end;
+copy X1 to Z;
+// Gán Z 1 bằng 1 nếu X chẵn, Z = 0 nếu X không chẳn
+clear switch;
+incr switch;
+clear Y;
+incr Y;
+incr Y;
+while switch not 0 do:
+	clear temp;
+	while Y not 0 do:
+		decr X;
+		decr Y;
+		incr temp;
+	end;
+	while temp not 0 do:
+		incr Y;
+		decr temp;
+	end;
+	if X < Y:
+	then:
+		decr switch;
+	end;
+	else:
+	
+	end;
+end;
+clear Z;
+incr switch;
+while X not 0:
+	clear Z;
+	clear X;
+	decr switch;
+end;
+while switch not 0:
+	incr Z;
+	decr switch;
+end;
+	
