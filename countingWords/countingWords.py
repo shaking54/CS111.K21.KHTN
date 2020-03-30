@@ -1,48 +1,57 @@
 import re
+from timeit import default_timer as timer
+from datetime import timedelta
 
 
-def counting(pathToDic , pathToTest):
+def counting(pathToDic, pathToTest):
     f = open(pathToDic, 'r')
     temp = f.read()
     f.close()
-
-    myreg = r"\n"
-    tudien = {}
-    reg = re.compile(myreg)
-    temp = reg.split(temp)
+    dictionary = {}
+    newLineRegex = re.compile(r"\n")
+    temp = newLineRegex.split(temp)
     for i in temp:
-        tudien[i]=True
+        dictionary[i] = True
     # print(tudien)
     # get full dict as object
 
     f = open(pathToTest, 'r')
     content = f.read()
     f.close()
-    myreg = r"[\s\.\n\,\?\(\)\"\:]"
-    reg = re.compile(myreg)
-    temp = filter(lambda x: x != '', reg.split(content))
-    baibao = []
+    spCharRegexStr = r"[\s\.\n\,\?\(\)\"\:]"
+    spCharRegex = re.compile(spCharRegexStr)
+    temp = filter(lambda x: x != '', spCharRegex.split(content))
+    article = []
     for i in temp:
-        baibao.append(i.upper());
-    # print(baibao)
-    exist = 0
-    nonExist = 0
+        article.append(i.upper());
+    # print(article)
+    article = list(set(article))
+    wordCounts = 0
+    wordNotExists = 0
 
-    for i in baibao:
+    for i in article:
         try:
-            if tudien[i]:
-                exist +=1
-                tudien[i]= False
+            if dictionary[i]:
+                wordCounts += 1
+                # dictionary[i] = False
         except:
-            nonExist+=1
+            wordNotExists += 1
             pass
-    return {'counting':exist,"except":nonExist}
+    return {'counting': wordCounts, "except": wordNotExists}
 
 
+def calPercent(wordOfArticle, wordsOfDic):
+    return (wordOfArticle / wordsOfDic) * 100
 
-def calPercent(wordOfArticle,wordsOfDic):
-    return (wordOfArticle/wordsOfDic)*100
 
-answer = counting('syllables.txt','demo.txt')
-print(answer)
-print(calPercent(answer['counting'] , 7700))
+aricle = ['article(400words-0.5A4).txt', 'article(2700words-3A4).txt', 'article(31000words-40A4).txt',
+          'article(63000words-80A4).txt']
+sysllabels = 'syllables.txt'
+
+for i in aricle:
+    start = timer()
+    answer = counting(sysllabels, i)
+    calPercent(answer['counting'], 7700)
+    print(answer)
+    end = timer()
+    print('The file: '+i+' run in: ', timedelta(seconds=end - start))

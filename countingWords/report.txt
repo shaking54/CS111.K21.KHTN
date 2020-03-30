@@ -1,9 +1,0 @@
--ý tưởng:
-
-+từ file syllables tạo thành list các từ
-+Tạo một từ điển, đánh dấu tất cả các từ có trong từ điển là true
-+Từ file input tạo thành list các từ
-+Tạo một list, thêm các từ đã được in hoa vào trong list chứa các words trong input được viết hoa
-+Duyệt list, nếu từ đó trong từ điển trả về True thì cộng thêm biến exist một đơn vị và switch từ đó trong từ điển thành false vì output chúng ta không cần những từ lặp lại. Ngược lại thì chúng ta cộng vào biến nonExist
-
-
