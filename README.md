@@ -10,5 +10,5 @@
 
 | MSSV              | Họ và tên |
 |-------------------|-----------|
+| Nguyễn Trần Trung | 18521555  | 
 | Lưu Hoàng Sơn     | 18521348  |
-| Nguyễn Trần Trung | 18521555  |
